@@ -62,7 +62,7 @@ def generate_mermaid(
 
     # Create nodes
     for category, techs in sorted(components.items()):
-        label = f"{category}\\n({', '.join(techs)})"
+        label = f"{category}<br/>({', '.join(techs)})"
         nid = _node_id(category)
         node_ids[category] = nid
         left, right = _shape(category)

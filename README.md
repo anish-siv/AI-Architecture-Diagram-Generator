@@ -111,9 +111,9 @@ Running the tool on a Spring Boot project:
 
 ```mermaid
 graph TD
-    Backend["Backend\n(spring-boot, spring-security, thymeleaf)"]
-    Database[("Database\n(h2, mysql)")]
-    Frontend["Frontend\n(bootstrap, font-awesome)"]
+    Backend["Backend<br/>(spring-boot, spring-security, thymeleaf)"]
+    Database[("Database<br/>(h2, mysql)")]
+    Frontend["Frontend<br/>(bootstrap, font-awesome)"]
     Frontend -->|HTTP requests| Backend
     Backend -->|rendered HTML| Frontend
     Backend -->|read/write| Database
