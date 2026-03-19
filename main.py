@@ -27,7 +27,7 @@ DEFAULT_OUTPUT = "architecture_output.md"
 # ── merge logic ─────────────────────────────────────────────────────────────
 
 
-def _merge_results(
+def merge_results(
     rule_results: dict,
     llm_result: Optional[AnalysisResult],
 ) -> dict:
@@ -163,7 +163,7 @@ def main() -> None:
             print("Set OPENAI_API_KEY or ANTHROPIC_API_KEY for AI-enhanced output.")
 
     # ── Merge & generate output ─────────────────────────────────────────
-    merged = _merge_results(rule_results, llm_result)
+    merged = merge_results(rule_results, llm_result)
 
     mermaid = generate_mermaid(
         merged["components"],
