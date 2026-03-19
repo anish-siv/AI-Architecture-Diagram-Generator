@@ -1,6 +1,6 @@
 # AI Architecture Diagram Generator
 
-A Python CLI tool that scans a local repository, detects technologies and architectural components, and generates a **Mermaid diagram** with a human-readable architecture summary.
+A Python tool that scans a local repository, detects technologies and architectural components, and generates a **Mermaid diagram** with a human-readable architecture summary. Available as both a **CLI** and an interactive **Streamlit web UI**.
 
 It works in two passes:
 1. **Rule-based detection** — fast, offline scan of config files, templates, source imports, and CI/CD pipelines.
@@ -9,6 +9,16 @@ It works in two passes:
 The tool gracefully degrades: if no API key is set, it runs in rules-only mode with zero external dependencies.
 
 ## Quick Start
+
+### Web UI
+
+```bash
+streamlit run app.py
+```
+
+Opens at `http://localhost:8501`. From the sidebar you can enter a repo path, choose an analysis mode (AI-Enhanced or Rules Only), select your LLM provider and model, and enter an API key. Results are rendered live in the browser with an interactive Mermaid diagram, architecture summary, and a download button.
+
+### CLI
 
 ```bash
 # Rules-only (no API key required)
@@ -86,6 +96,7 @@ When both keys are set and no `--provider` is specified, OpenAI is used by defau
 ## Project Structure
 
 ```
+app.py                     Streamlit web UI
 main.py                    CLI entry point, 2-pass pipeline, merge logic
 detector.py                Rule-based technology detection
 collector.py               Curated context builder for the LLM
@@ -102,6 +113,7 @@ requirements.txt           Dependencies
 ## Requirements
 
 - Python 3.8+
+- `streamlit>=1.30` (for the web UI)
 - `openai>=1.0` (optional, for OpenAI provider)
 - `anthropic>=0.40` (optional, for Anthropic provider)
 
